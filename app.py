@@ -1,5 +1,4 @@
 import streamlit as st
-import pyperclip
 from encryption_logic import encrypt_word, decrypt_word, decryption_key, encryption_key, find_index
 
 
@@ -11,10 +10,8 @@ def encryption_form():
             shift_num = find_index(encrypt)
             encrypted_message, index = encrypt_word(encrypt, shift_num)
             key = encryption_key(index)
-            pyperclip.copy(key)
             st.markdown(f'Your encrypted message is &mdash; :red[{encrypted_message}]')
-            st.markdown(f'Your encryption key has been copied')
-            pyperclip.copy(key)
+            st.markdown(f'Your encryption key is &mdash; :red[{key}]')
         elif submit and not encrypt:
             st.error('Please enter a message before you press the button')
 
