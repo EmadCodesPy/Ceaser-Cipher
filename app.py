@@ -10,14 +10,14 @@ def encryption_form():
             shift_num = find_index(encrypt)
             encrypted_message, index = encrypt_word(encrypt, shift_num)
             key = encryption_key(index)
-            st.markdown(f'Your encrypted message is &mdash; :red[{encrypted_message}]')
             st.markdown(f'Your encryption key is &mdash; :red[{key}]')
+            st.markdown(f'Your encrypted message is &mdash; :red[{encrypted_message}]')
         elif submit and not encrypt:
             st.error('Please enter a message before you press the button')
 
 def decryption_form():
     with st.form('Decrypt your message'):
-        decrypt_key = st.text_input('Enter your encryption key', placeholder='paste from clipboard')
+        decrypt_key = st.text_input('Enter your encryption key', placeholder='...')
         decrypt = st.text_input('Enter your message', placeholder='...')
         submit = st.form_submit_button('Decrypt Message')
         if submit and decrypt and decrypt_key:
